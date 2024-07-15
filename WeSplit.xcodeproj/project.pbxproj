@@ -14,6 +14,7 @@
 		0425053A2C40534800129B73 /* @StateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042505392C40534800129B73 /* @StateExample.swift */; };
 		0425053C2C40536F00129B73 /* SUIBasicSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425053B2C40536F00129B73 /* SUIBasicSetup.swift */; };
 		0425053E2C40538C00129B73 /* FormExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425053D2C40538C00129B73 /* FormExample.swift */; };
+		042505402C45DFAF00129B73 /* Pickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425053F2C45DFAF00129B73 /* Pickers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		042505392C40534800129B73 /* @StateExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "@StateExample.swift"; sourceTree = "<group>"; };
 		0425053B2C40536F00129B73 /* SUIBasicSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIBasicSetup.swift; sourceTree = "<group>"; };
 		0425053D2C40538C00129B73 /* FormExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormExample.swift; sourceTree = "<group>"; };
+		0425053F2C45DFAF00129B73 /* Pickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				0425052B2C40521600129B73 /* WeSplitApp.swift */,
 				0425052D2C40521600129B73 /* ContentView.swift */,
+				0425053F2C45DFAF00129B73 /* Pickers.swift */,
 				042505392C40534800129B73 /* @StateExample.swift */,
 				0425053B2C40536F00129B73 /* SUIBasicSetup.swift */,
 				0425053D2C40538C00129B73 /* FormExample.swift */,
@@ -149,6 +152,7 @@
 				0425053E2C40538C00129B73 /* FormExample.swift in Sources */,
 				0425052E2C40521600129B73 /* ContentView.swift in Sources */,
 				0425052C2C40521600129B73 /* WeSplitApp.swift in Sources */,
+				042505402C45DFAF00129B73 /* Pickers.swift in Sources */,
 				0425053C2C40536F00129B73 /* SUIBasicSetup.swift in Sources */,
 				0425053A2C40534800129B73 /* @StateExample.swift in Sources */,
 			);

@@ -50,7 +50,6 @@ struct ContentView: View {
             }
             .navigationTitle("Swift UI")
             .navigationBarTitleDisplayMode(.inline)
-
         }
     }
 }
