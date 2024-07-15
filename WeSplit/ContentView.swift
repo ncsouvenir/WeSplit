@@ -13,7 +13,19 @@ import Foundation
 // MARK: Creates a new struct called ContentView, saying that it conforms to the View protocol. View is the basic protocol that must be adopted by anything you want to draw on the screen – all text, buttons, images, and more are all views, including your own layouts that combine other views.
 struct ContentView: View {
     
-    @State private var checkAmount = 0.0 // automatically watches for changes then reloads UI
+    /*
+     "Views are a function of their state"
+      For example, they can’t tap Continue until they have enter
+      their name in a text field. */
+    
+    /*
+      We can’t change their properties because structs are fixed, but
+      @State allows that value to be stored separately by SwiftUI
+      in aplace that can be modified.
+     */
+    
+    // Tracker: automatically watches for changes then reloads UI
+    @State private var checkAmount = 0.0
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     
@@ -29,11 +41,16 @@ struct ContentView: View {
     }
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Amount", value: $checkAmount, formatter: currencyFormatter)
-                .keyboardType(.decimalPad)
+        NavigationStack {
+            Form {
+                Section {
+                    TextField("Amount", value: $checkAmount, formatter: currencyFormatter)
+                    .keyboardType(.decimalPad)
+                }
             }
+            .navigationTitle("Swift UI")
+            .navigationBarTitleDisplayMode(.inline)
+
         }
     }
 }

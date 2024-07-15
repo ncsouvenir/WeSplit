@@ -5,7 +5,7 @@
 //  Created by Nic Souvenir on 7/11/24.
 //
 
-import Foundation...
+import Foundation
 import SwiftUI
 
 
