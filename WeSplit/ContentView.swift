@@ -47,6 +47,17 @@ struct ContentView: View {
                     TextField("Amount", value: $checkAmount, formatter: currencyFormatter)
                         .keyboardType(.decimalPad)
                 }
+                
+                // Views can be added to the header and footer of sections
+                Section("How much tip do you want to leave") {
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
+                            Text($0, format: .percent)
+                        }
+                    }
+                    // Segmented Control
+                    .pickerStyle(.segmented)
+                }
                 Picker("Number of people", selection: $numberOfPeople){
                     ForEach(2..<100) {
                         Text("\($0) people")
