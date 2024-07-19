@@ -15,13 +15,13 @@ struct ContentView: View {
     
     /*
      "Views are a function of their state"
-      For example, they can’t tap Continue until they have enter
-      their name in a text field. */
+     For example, they can’t tap Continue until they have enter
+     their name in a text field. */
     
     /*
-      We can’t change their properties because structs are fixed, but
-      @State allows that value to be stored separately by SwiftUI
-      in aplace that can be modified.
+     We can’t change their properties because structs are fixed, but
+     @State allows that value to be stored separately by SwiftUI
+     in aplace that can be modified.
      */
     
     // Tracker: automatically watches for changes then reloads UI
@@ -45,8 +45,15 @@ struct ContentView: View {
             Form {
                 Section {
                     TextField("Amount", value: $checkAmount, formatter: currencyFormatter)
-                    .keyboardType(.decimalPad)
+                        .keyboardType(.decimalPad)
                 }
+                Picker("Number of people", selection: $numberOfPeople){
+                    ForEach(2..<100) {
+                        Text("\($0) people")
+                    }
+                }
+                // Show a new view with the options from our picker
+                .pickerStyle(.navigationLink)
             }
             .navigationTitle("Swift UI")
             .navigationBarTitleDisplayMode(.inline)
