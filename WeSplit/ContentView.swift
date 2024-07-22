@@ -31,25 +31,29 @@ struct ContentView: View {
     
     let tipPercentages = [10, 15, 20, 25, 0]
     
-    var currencyFormatter: NumberFormatter {
-        let formatter = NumberFormatter()
+    var currencyCode: String {
+        return Locale.current.currency?.identifier ?? "USD"
+    }
+    
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(tipPercentage)
+        var tipValue = Double(checkAmount / 100) * tipSelection
+        var grandTotal = checkAmount + tipValue
         
-        // MARK: Locale is a massive struct built to store all the user’s region setting
-        formatter.currencyCode = Locale.current.currency?.identifier ?? "USD"
-        
-        return formatter
+        return grandTotal / peopleCount
     }
     
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    TextField("Amount", value: $checkAmount, formatter: currencyFormatter)
+                Section("Check Total") {
+                    TextField("Amount", value: $checkAmount, format: .currency(code: currencyCode))
                         .keyboardType(.decimalPad)
                 }
                 
                 // Views can be added to the header and footer of sections
-                Section("How much tip do you want to leave") {
+                Section("How much tip do you want to leave?") {
                     Picker("Tip percentage", selection: $tipPercentage) {
                         ForEach(tipPercentages, id: \.self) {
                             Text($0, format: .percent)
@@ -65,6 +69,10 @@ struct ContentView: View {
                 }
                 // Show a new view with the options from our picker
                 .pickerStyle(.navigationLink)
+
+                Section("Total Per Person"){
+                    Text(totalPerPerson, format: .currency(code: currencyCode))
+                }
             }
             .navigationTitle("Swift UI")
             .navigationBarTitleDisplayMode(.inline)
