@@ -29,6 +29,9 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     
+    // MARK: Specifically designed to handle input focus in our UI i.e keyboard
+    @FocusState private var amountIsFocused: Bool
+
     let tipPercentages = [10, 15, 20, 25, 0]
     
     var currencyCode: String {
@@ -49,7 +52,10 @@ struct ContentView: View {
             Form {
                 Section("Check Total") {
                     TextField("Amount", value: $checkAmount, format: .currency(code: currencyCode))
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
                         .keyboardType(.decimalPad)
+                        .focused($amountIsFocused)
                 }
                 
                 // Views can be added to the header and footer of sections
@@ -76,6 +82,17 @@ struct ContentView: View {
             }
             .navigationTitle("Swift UI")
             .navigationBarTitleDisplayMode(.inline)
+
+            // MARK: Lets us specify toolbar items for a view.
+            .toolbar {
+                // Only showing button when the textField is active
+                if amountIsFocused {
+                    Button("Done") {
+                        // dismisses keyboard
+                        amountIsFocused = false
+                    }
+                }
+            }
         }
     }
 }
